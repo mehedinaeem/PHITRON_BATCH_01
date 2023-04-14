@@ -12,11 +12,12 @@ void display(Node *n)
     while (n != NULL)
     {
         cout << n->value;
-        if(n->Next != NULL)
-        cout<<"->>";
-        n=n->Next;
+        if (n->Next != NULL)
+            cout << "->>";
+        n = n->Next;
     }
-    cout<<endl<<endl;
+    cout << endl
+         << endl;
 }
 int main()
 {
