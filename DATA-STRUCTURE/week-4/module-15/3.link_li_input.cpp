@@ -50,10 +50,23 @@ display(Node *n)
 int main()
 {
     Node *head = NULL;
-    insertAtTail(head, 1);
-    insertAtTail(head, 2);
-    insertAtTail(head, 3);
-    insertAtTail(head, 4);
+    int n;
+    // cout<<"Enter the value:";
+    // cin>>n;
+    char choice='y';
+    while(choice=='y')
+    {
+        cout<<"Enter the value:";
+        cin>>n;
+        insertAtTail(head,n);
+        cout<<"Do u want to continue:(y/n)";
+        cin>>choice;
+    }
+
+    // insertAtTail(head, 1);
+    // insertAtTail(head, 2);
+    // insertAtTail(head, 3);
+    // insertAtTail(head, 4);
     // Node *second = new Node();
 
     // head->value = 10;
