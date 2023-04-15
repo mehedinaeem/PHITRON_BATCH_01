@@ -15,14 +15,14 @@ public:
     }
 };
 
-insertAtTail(Node * &head, int val)
+void insertAtTail(Node * &head, int val)
 {
     Node *newNode = new Node(val);
 
     if (head == NULL)
     {
         head = newNode;
-        return 0;
+        return;
     }
 
     Node *temp = head;
