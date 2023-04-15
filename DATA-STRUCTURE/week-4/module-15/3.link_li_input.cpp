@@ -59,7 +59,7 @@ int main()
         cout<<"Enter the value:";
         cin>>n;
         insertAtTail(head,n);
-        cout<<"Do u want to continue:(y/n)";
+        cout<<"Do u want to continue:(y/n):";
         cin>>choice;
     }
 
