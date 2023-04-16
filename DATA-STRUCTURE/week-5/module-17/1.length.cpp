@@ -37,6 +37,7 @@ void insertAtTail(Node *&head, int val)
     }
     temp->Next = newNode;
 }
+
 void insertAtHead(Node *&head, int val)
 {
     // s1: new node creation
@@ -46,6 +47,7 @@ void insertAtHead(Node *&head, int val)
     // s3: update of head
     head = newNode;
 }
+
 void display(Node *n)
 {
     while (n != NULL)
