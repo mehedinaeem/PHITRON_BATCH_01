@@ -21,6 +21,7 @@ void display(Node *n);
 int countLength(Node *&head);
 void insertionAtSpecificPosition(Node *&head, int pos, int val);
 int searchByValueUnique(Node *&head, int key);
+void searchByValueDuplicate(Node *&head, int key);
 
 void insertAtTail(Node *&head, int val)
 {
@@ -113,6 +114,27 @@ int searchByValueUnique(Node *&head, int key)
     return count;
 }
 
+void searchByValueDuplicate(Node *&head, int key)
+{
+    Node *temp = head;
+    int count = 1;
+    int flag=0;
+
+    while (temp != NULL)
+    {
+        if (temp->value == key)
+        {
+            cout << count << " ";
+            flag++;
+        }
+        temp = temp->Next;
+        count++;
+        
+    }
+    if(flag==0)
+        cout<<"The search value is not yet in the list"<<endl;
+}
+
 int main()
 {
     Node *head = NULL;
@@ -126,6 +148,7 @@ int main()
          << "choice 2: insertion at tail: " << endl
          << "choice 3: insertion at specific positiin: " << endl
          << "choice 4: search a value(unique list): " << endl
+         << "choice 5: search a value(Duplication enable list): " << endl
          << "choice 0: Exit" << endl
          << endl;
     cout << "Next choice: ";
@@ -168,6 +191,22 @@ int main()
             {
                 cout << "The number is not yet the list" << endl;
             }
+            break;
+
+        case 5:
+            cout << "Enter the value: ";
+            cin >> value;
+            searchByValueDuplicate(head,value);
+            cout<<endl;
+            // position = searchByValueUnique(head, value);
+            // if (position != -1)
+            // {
+            //     cout << "The number at position " << position << endl;
+            // }
+            // else
+            // {
+            //     cout << "The number is not yet the list" << endl;
+            // }
             break;
 
         default:
