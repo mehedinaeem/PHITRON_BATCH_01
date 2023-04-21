@@ -15,6 +15,11 @@ public:
     }
 };
 
+struct Test
+{
+    int position[1000];
+};
+
 void insertAtTail(Node *&head, int val);
 void insertAtHead(Node *&head, int val);
 void display(Node *n);
@@ -114,42 +119,65 @@ int searchByValueUnique(Node *&head, int key)
     return count;
 }
 
-void searchByValueDuplicate(Node *&head, int key) 
+void searchByValueDuplicate(Node *&head, int key)
 {
     Node *temp = head;
     int size;
-    size=countLength(head);
-    int position[size],k=1;
+    size = countLength(head);
+    int position[size], k = 1;
     int count = 1;
-    int flag=0;
+    int flag = 0;
 
     while (temp != NULL)
     {
         if (temp->value == key)
         {
-            //cout << count << " ";
-            position[k]=count;
+            // cout << count << " ";
+            position[k] = count;
             k++;
             flag++;
         }
         temp = temp->Next;
         count++;
-        
     }
-    if(flag==0)
-        cout<<"The search value is not yet in the list"<<endl;
-        else
-          {
-            position[0]=k;
-          cout<<"The value is found at position: ";
-          for(int i=1;i<position[0];i++)
-          {
-            cout<<position[i];
-            if(i<position[0]-1)
-            cout<<",";
-          }
-          }
+    if (flag == 0)
+        cout << "The search value is not yet in the list" << endl;
+    else
+    {
+        position[0] = k;
+        cout << "The value is found at position: ";
+        for (int i = 1; i < position[0]; i++)
+        {
+            cout << position[i];
+            if (i < position[0] - 1)
+                cout << ",";
+        }
+    }
+}
 
+Test searchByValueDuplicateReturn(Node *&head, int key)
+{
+    Node *temp = head;
+    Test T;
+    int k = 1;
+    int count = 1;
+    
+
+    while (temp != NULL)
+    {
+        if (temp->value == key)
+        {
+            // cout << count << " ";
+            T.position[k] = count;
+            k++;
+            
+        }
+        temp = temp->Next;
+        count++;
+    }
+    T.position[0]=k;
+    return T;
+    
 }
 
 int main()
@@ -213,8 +241,25 @@ int main()
         case 5:
             cout << "Enter the value: ";
             cin >> value;
-            searchByValueDuplicate(head,value);
-            cout<<endl;
+           // searchByValueDuplicate(head, value);
+           Test T;
+           T=searchByValueDuplicateReturn(head,value);
+           if(T.position[0]==1)
+           {
+            cout << "The search value is not yet in the list" << endl;
+           }
+           else
+           {
+               int size=T.position[0];
+               cout << "The value is found at position: ";
+               for(int i=1;i<size;i++)
+               {
+                cout<<T.position[i];
+                if(i<size-1)
+                cout<<",";
+               }
+           }
+            cout << endl;
             break;
 
         default:
