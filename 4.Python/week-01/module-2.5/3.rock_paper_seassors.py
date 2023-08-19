@@ -83,13 +83,12 @@
 
 while True:
     player1 = input("player 1: ")
-    
+    player2 = input("player 2: ")
     
     if player1 == "end" or player2 == "end":
         print("opponent left")
         break
 
-    player2 = input("player 2: ")
 
     if player1 == "rock" and player2 == "scissors":
         print("win player 1")
