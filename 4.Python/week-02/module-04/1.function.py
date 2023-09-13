@@ -11,6 +11,6 @@
 # output=summation(2,5)
 # print(f"The sum is: {output}")
 
-numbers=list[range(1,100)]
-sum(list)
-print(sum)
+numbers=list(range(1,101))
+a=sum(numbers)
+print(a)
